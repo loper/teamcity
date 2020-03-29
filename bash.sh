@@ -6,3 +6,5 @@ hostname
 
 pwd
 ls
+
+uname -a > artifact.log
