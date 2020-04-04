@@ -1,1 +1,6 @@
 language: bash
+
+jobs:
+  include:
+    - stage: test
+      script: ./bash.sh
