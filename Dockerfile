@@ -9,4 +9,4 @@ USER jenkins
 RUN npm -version
 RUN jenkins-slave -version x
 RUN jenkins-agent -version x
-RUN ansible --version
+# RUN ansible --version
