@@ -4,9 +4,13 @@ FROM jenkins/jnlp-slave
 USER root
 COPY --from=0 /usr/local  /usr/local
 
+
+COPY ./setup.sh /setup.sh
+RUN /setup.sh
+
 USER jenkins
 
 RUN npm -version
 RUN jenkins-slave -version x
 RUN jenkins-agent -version x
-# RUN ansible --version
+RUN ansible --version
