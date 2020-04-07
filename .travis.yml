@@ -1,6 +1,16 @@
 language: bash
 
-jobs:
-  include:
-    - stage: test
-      script: ./bash.sh
+services:
+  - docker
+
+before_install:
+  - docker build -t j-worker:v8 .
+
+
+script:
+  - docker run -it -d --rm j-worker:v8 /bin/sh -c "npm -version"
+
+    # jobs:
+    #   include:
+    #     - stage: test
+    #       script: ./bash.sh
