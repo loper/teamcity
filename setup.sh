@@ -4,19 +4,12 @@ set -eu
 
 apt-get purge -y \
 mercurial-common \
-adwaita-icon-theme
 
 apt-get update && apt-get -y install software-properties-common
 
 # Ansible repository
 echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" >> /etc/apt/sources.list \
 && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 93C4A3FD7BB9C367
-
-# Java repository
-# add-apt-repository -y ppa:webupd8team/java \
-# && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C2518248EEA14886 \
-# && echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections \
-# && sed -i 's/disco/xenial/g' /etc/apt/sources.list.d/webupd8team-ubuntu-java-disco.list
 
 # NodeJS repository
 # apt-get update \
