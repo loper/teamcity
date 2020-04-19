@@ -2,7 +2,7 @@ language: bash
 
 branches:
   only:
-  - master  
+  - master
 
 services:
   - docker
@@ -12,6 +12,8 @@ before_install:
 
 script:
   - docker run -it -d --rm j-worker:v8 /bin/sh -c "npm -version"
+  - docker run -it -d --rm j-worker:v8 /bin/sh -c "jenkins-agent -version x"
+  - docker run -it -d --rm j-worker:v8 /bin/sh -c "ansible --version"
 
     # jobs:
     #   include:
