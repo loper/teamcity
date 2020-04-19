@@ -21,7 +21,7 @@ echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" >> /etc/a
 # NodeJS repository
 # apt-get update \
 # && curl -sL https://deb.nodesource.com/setup_8.x | bash -
-# 
+#
 # apt-add-repository ppa:qameta/allure && \
 # sed -i 's/disco/xenial/g' /etc/apt/sources.list.d/qameta-ubuntu-allure-disco.list && \
 # apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 134BF6F3
@@ -86,5 +86,5 @@ echo 'export PATH=${M2_HOME}/bin:${PATH}' >> /etc/profile
 ln -sfv /opt/maven/bin/mvn /usr/bin/mvn || true
 
 # java jdk
-INSTALLER=jdk-8u241-linux-x64.deb
-dpkg -i /$INSTALLER && rm /$INSTALLER
+# INSTALLER=jdk-8u241-linux-x64.deb
+# dpkg -i /$INSTALLER && rm /$INSTALLER

@@ -1,12 +1,21 @@
+FROM node
+
 FROM jenkins/jnlp-slave
-
-ARG INSTALLER=jdk-8u241-linux-x64.deb
-
 USER root
-COPY $INSTALLER /$INSTALLER
+COPY --from=0 /usr/local  /usr/local
 
-ADD setup.sh /
+
+COPY ./setup.sh /setup.sh
 RUN /setup.sh
+
+USER jenkins
+
+RUN npm -version
+RUN jenkins-slave -version x
+RUN jenkins-agent -version x
+RUN ansible --version
+
+# COPY $INSTALLER /$INSTALLER
 
 # java
 # RUN apt-get -y install rpm
@@ -24,4 +33,3 @@ ENV JAVA5_BOOTCLASSES="$JAVA_HOME/jre/lib/rt.jar"
 ENV JAVA7_BOOTCLASSES="$JAVA5_BOOTCLASSES"
 ENV JAVA8_BOOTCLASSES="$JAVA5_BOOTCLASSES"
 
-USER root
